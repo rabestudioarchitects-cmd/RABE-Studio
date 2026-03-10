@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RABE Studio Architects – Modern tropical architecture for homes and commercial spaces in the Philippines. Award-winning design, built to last.">
+<meta property="og:title" content="RABE Studio Architects | Modern Tropical Architecture Philippines">
+<meta property="og:description" content="Focused, collaborative architecture designed to elevate lifestyle and value.">
+<title>RABE Studio Architects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ── VARIABLES ── */
+  :root {
+    --ink: #1a1714;
+    --sand: #f5f0e8;
+    --warm: #e8dfd0;
+    --clay: #c4a882;
+    --rust: #8b4a2f;
+    --moss: #3d4a36;
+    --cream: #faf8f4;
+    --mid: #7a7168;
+    --gap: clamp(80px, 10vw, 140px);
+    --r: 0px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* ── CUSTOM CURSOR ── */
+  .cursor {
+    width: 10px; height: 10px;
+    background: var(--rust);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease;
+    transform: translate(-50%, -50%);
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1px solid var(--clay);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.4s ease, opacity 0.3s;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+  }
+  body:hover .cursor { opacity: 1; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 28px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    mix-blend-mode: normal;
+    transition: background 0.4s, padding 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(250,248,244,0.96);
+    backdrop-filter: blur(12px);
+    padding: 18px 48px;
+    border-bottom: 1px solid var(--warm);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream) !important;
+    background: var(--ink);
+    padding: 10px 22px !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--rust); color: var(--cream) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    height: 100svh;
+    min-height: 700px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 0 64px 80px;
+    position: relative; z-index: 2;
+    background: var(--cream);
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 40px; height: 1px; background: var(--clay);
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 5.5vw, 6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--rust);
+  }
+  .hero-sub {
+    font-size: 0.9rem;
+    color: var(--mid);
+    max-width: 380px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+  }
+  .hero-actions { display: flex; gap: 16px; align-items: center; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--cream);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--rust); transform: translateY(-1px); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .btn-ghost:hover { gap: 14px; }
+  .btn-ghost svg { width: 16px; height: 16px; }
+
+  .hero-right {
+    position: relative; overflow: hidden;
+    background: var(--ink);
+  }
+  .hero-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+    mix-blend-mode: luminosity;
+    transition: transform 8s ease;
+    transform: scale(1.05);
+  }
+  .hero:hover .hero-img { transform: scale(1.0); }
+  .hero-counter {
+    position: absolute; bottom: 40px; right: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem; font-weight: 300;
+    color: rgba(255,255,255,0.12);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .hero-stat {
+    position: absolute; top: 48%; left: -1px;
+    writing-mode: vertical-lr;
+    font-size: 0.65rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--mid);
+    transform: rotate(180deg);
+    border-left: 1px solid var(--warm);
+    padding: 12px 16px;
+  }
+
+  /* ── INTRO STRIP ── */
+  .intro-strip {
+    background: var(--ink); color: var(--cream);
+    padding: 56px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 40px;
+    overflow: hidden;
+  }
+  .intro-strip p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+    font-weight: 300;
+    font-style: italic;
+    max-width: 680px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+  }
+  .intro-strip p em { color: var(--clay); font-style: normal; }
+  .intro-stats {
+    display: flex; gap: 48px; flex-shrink: 0;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300; line-height: 1;
+    color: var(--clay);
+  }
+  .stat-label {
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); margin-top: 4px;
+  }
+
+  /* ── SECTION COMMON ── */
+  section { padding: var(--gap) 48px; }
+  .section-tag {
+    font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--clay); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-tag::before {
+    content: '';
+    width: 24px; height: 1px; background: var(--clay);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 4vw, 4rem);
+    font-weight: 300; line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  /* ── PROJECTS ── */
+  .projects { background: var(--cream); }
+  .projects-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 60px;
+  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: 420px 340px;
+    gap: 3px;
+  }
+  .proj-card {
+    position: relative; overflow: hidden;
+    background: var(--ink);
+    cursor: none;
+  }
+  .proj-card.span-col { grid-column: span 1; grid-row: span 2; }
+  .proj-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.75;
+    transition: transform 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.4s;
+    filter: saturate(0.6);
+  }
+  .proj-card:hover .proj-img {
+    transform: scale(1.06);
+    opacity: 0.6;
+    filter: saturate(0.3);
+  }
+  .proj-overlay {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 36px;
+    background: linear-gradient(to top, rgba(26,23,20,0.85) 0%, transparent 60%);
+  }
+  .proj-type {
+    font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--clay); margin-bottom: 8px;
+  }
+  .proj-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400; color: #fff;
+    line-height: 1.2; margin-bottom: 8px;
+  }
+  .proj-loc {
+    font-size: 0.75rem; color: rgba(255,255,255,0.5);
+  }
+  .proj-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 16px; font-size: 0.7rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--clay); text-decoration: none;
+    opacity: 0; transform: translateY(8px);
+    transition: opacity 0.3s, transform 0.3s, gap 0.2s;
+  }
+  .proj-card:hover .proj-link {
+    opacity: 1; transform: translateY(0);
+  }
+  .proj-link:hover { gap: 14px; }
+
+  /* placeholder images for projects */
+  .proj-bg {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .proj-bg-pamayanan { background: linear-gradient(135deg, #2a3528 0%, #4a5a42 50%, #3d4a36 100%); }
+  .proj-bg-denovo { background: linear-gradient(135deg, #3d3025 0%, #5a4535 50%, #4a3828 100%); }
+  .proj-bg-townhouse { background: linear-gradient(135deg, #2a3540 0%, #3a4a55 50%, #2d3d4a 100%); }
+  .proj-bg-bataan { background: linear-gradient(135deg, #3a2e28 0%, #4a3e35 50%, #3d3028 100%); }
+  .proj-pattern {
+    position: absolute; inset: 0;
+    opacity: 0.08;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.4) 0px, rgba(255,255,255,0.4) 1px, transparent 1px, transparent 20px),
+      repeating-linear-gradient(-45deg, rgba(255,255,255,0.4) 0px, rgba(255,255,255,0.4) 1px, transparent 1px, transparent 20px);
+  }
+  .proj-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 7rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.08);
+    line-height: 1;
+    user-select: none;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--sand); }
+  .services-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .services-sticky { position: sticky; top: 120px; }
+  .services-body p {
+    font-size: 0.9rem; color: var(--mid);
+    line-height: 1.8; margin-top: 20px;
+  }
+  .services-list { display: flex; flex-direction: column; }
+  .service-item {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    align-items: start; gap: 24px;
+    padding: 36px 0;
+    border-bottom: 1px solid rgba(26,23,20,0.1);
+    transition: background 0.2s;
+    cursor: none;
+  }
+  .service-item:first-child { border-top: 1px solid rgba(26,23,20,0.1); }
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; color: var(--clay); font-weight: 300;
+    padding-top: 4px;
+  }
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400; margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+  .service-item:hover .service-name { color: var(--rust); }
+  .service-desc {
+    font-size: 0.85rem; color: var(--mid); line-height: 1.7;
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s;
+    opacity: 0;
+  }
+  .service-item:hover .service-desc { max-height: 120px; opacity: 1; }
+  .service-arrow {
+    width: 32px; height: 32px;
+    border: 1px solid var(--warm);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    margin-top: 4px;
+  }
+  .service-item:hover .service-arrow {
+    background: var(--ink);
+    border-color: var(--ink);
+    transform: rotate(45deg);
+  }
+  .service-item:hover .service-arrow svg { color: var(--cream); }
+
+  /* ── PROCESS ── */
+  .process { background: var(--ink); color: var(--cream); }
+  .process .section-title { color: var(--cream); }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+  .process-step {
+    background: rgba(255,255,255,0.04);
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .process-step:hover { background: rgba(255,255,255,0.08); }
+  .process-step::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--clay);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .process-step:hover::before { transform: scaleX(1); }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 300;
+    color: rgba(255,255,255,0.08);
+    line-height: 1; margin-bottom: 24px;
+  }
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 400;
+    color: var(--cream); margin-bottom: 12px;
+  }
+  .step-desc { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+  /* ── ABOUT ── */
+  .about { background: var(--cream); }
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-img-wrap {
+    position: relative;
+    background: var(--ink);
+    aspect-ratio: 3/4;
+    max-height: 580px;
+    overflow: hidden;
+  }
+  .about-bg {
+    width: 100%; height: 100%;
+    background: linear-gradient(160deg, #2a3528 0%, #1a2018 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-pattern {
+    position: absolute; inset: 0;
+    opacity: 0.06;
+    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.5) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+  .about-quote-block {
+    position: absolute; bottom: -24px; right: -24px;
+    background: var(--clay);
+    padding: 28px 32px;
+    max-width: 260px;
+  }
+  .about-quote-block p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-style: italic;
+    color: var(--ink); line-height: 1.5;
+  }
+  .about-badge {
+    position: absolute; top: 24px; left: -24px;
+    background: var(--rust);
+    color: var(--cream);
+    padding: 12px 16px;
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    writing-mode: vertical-lr; transform: rotate(180deg);
+  }
+  .about-text { padding-left: 20px; }
+  .about-text .section-title { margin-bottom: 28px; }
+  .about-text p {
+    font-size: 0.9rem; color: var(--mid); line-height: 1.85;
+    margin-bottom: 20px;
+  }
+  .about-text p strong { color: var(--ink); font-weight: 500; }
+  .award-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--sand); padding: 12px 18px;
+    margin-top: 8px;
+    font-size: 0.75rem; color: var(--moss);
+  }
+  .award-tag::before {
+    content: '★';
+    color: var(--clay);
+  }
+
+  /* ── TEAM ── */
+  .team { background: var(--sand); }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+  .team-card {
+    position: relative; overflow: hidden;
+    background: var(--ink);
+    aspect-ratio: 3/4;
+  }
+  .team-bg {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    transition: transform 0.5s ease;
+  }
+  .team-card:hover .team-bg { transform: scale(1.04); }
+  .t-bg-1 { background: linear-gradient(160deg, #2c3530 0%, #1e2820 100%); }
+  .t-bg-2 { background: linear-gradient(160deg, #35302a 0%, #28231e 100%); }
+  .t-bg-3 { background: linear-gradient(160deg, #2a2e35 0%, #1e2228 100%); }
+  .t-bg-4 { background: linear-gradient(160deg, #352a30 0%, #281e23 100%); }
+  .t-pattern {
+    position: absolute; inset: 0; opacity: 0.05;
+    background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 1px, transparent 1px, transparent 30px);
+  }
+  .t-initial {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem; font-weight: 300;
+    color: rgba(255,255,255,0.12); z-index: 1;
+  }
+  .team-info {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 28px 24px;
+    background: linear-gradient(to top, rgba(26,23,20,0.92) 0%, transparent 100%);
+    transform: translateY(60px);
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+  .team-card:hover .team-info { transform: translateY(0); }
+  .team-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; color: #fff; font-weight: 400;
+  }
+  .team-role {
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--clay); margin-top: 4px;
+  }
+  .team-bio {
+    font-size: 0.78rem; color: rgba(255,255,255,0.55);
+    line-height: 1.6; margin-top: 10px;
+    opacity: 0; transition: opacity 0.3s 0.1s;
+  }
+  .team-card:hover .team-bio { opacity: 1; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials {
+    background: var(--clay);
+    padding: var(--gap) 48px;
+  }
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-top: 48px;
+  }
+  .test-card {
+    background: rgba(255,255,255,0.12);
+    padding: 36px 32px;
+    transition: background 0.3s;
+  }
+  .test-card:hover { background: rgba(255,255,255,0.2); }
+  .test-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-style: italic;
+    color: var(--ink); line-height: 1.6; margin-bottom: 24px;
+  }
+  .test-author { font-size: 0.75rem; color: rgba(26,23,20,0.6); letter-spacing: 0.08em; }
+  .test-author strong { color: var(--ink); display: block; font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 500; font-style: normal; margin-bottom: 2px; }
+  .test-stars { color: var(--rust); font-size: 0.75rem; margin-bottom: 14px; }
+  .testimonials .section-title { color: var(--ink); }
+  .testimonials .section-tag { color: var(--rust); }
+  .testimonials .section-tag::before { background: var(--rust); }
+
+  /* ── FAQ ── */
+  .faq { background: var(--cream); }
+  .faq-layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 80px;
+  }
+  .faq-list { display: flex; flex-direction: column; }
+  .faq-item {
+    border-bottom: 1px solid var(--warm);
+    overflow: hidden;
+  }
+  .faq-q {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 0;
+    cursor: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 400;
+    transition: color 0.2s;
+  }
+  .faq-item.open .faq-q { color: var(--rust); }
+  .faq-toggle {
+    width: 28px; height: 28px;
+    border: 1px solid var(--warm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; color: var(--mid);
+    flex-shrink: 0;
+    transition: transform 0.3s, background 0.2s;
+  }
+  .faq-item.open .faq-toggle {
+    transform: rotate(45deg);
+    background: var(--ink); color: var(--cream);
+  }
+  .faq-a {
+    font-size: 0.85rem; color: var(--mid); line-height: 1.8;
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+    padding-bottom: 0;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding-bottom: 24px; }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--ink);
+    padding: var(--gap) 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 60px;
+  }
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 4vw, 4.5rem);
+    font-weight: 300; color: var(--cream); line-height: 1.1;
+  }
+  .cta-title em { font-style: italic; color: var(--clay); }
+  .cta-sub {
+    font-size: 0.88rem; color: rgba(255,255,255,0.45);
+    max-width: 480px; line-height: 1.75; margin-top: 20px;
+  }
+  .cta-actions { display: flex; flex-direction: column; gap: 16px; flex-shrink: 0; }
+  .btn-outline-cream {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 14px 28px; text-decoration: none;
+    text-align: center;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline-cream:hover { border-color: var(--clay); color: var(--clay); }
+  .cta-contact {
+    font-size: 0.8rem; color: rgba(255,255,255,0.35);
+    margin-top: 12px; text-align: center;
+  }
+  .cta-contact a { color: var(--clay); text-decoration: none; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111109;
+    padding: 56px 48px 32px;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand {}
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    display: block; margin-bottom: 16px;
+  }
+  .footer-tagline {
+    font-size: 0.78rem; color: rgba(255,255,255,0.3);
+    line-height: 1.6; max-width: 200px;
+  }
+  .footer-col h4 {
+    font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35); margin-bottom: 16px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a {
+    font-size: 0.82rem; color: rgba(255,255,255,0.5);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--clay); }
+  .footer-bottom {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 28px;
+    font-size: 0.72rem; color: rgba(255,255,255,0.25);
+  }
+  .social-links { display: flex; gap: 16px; }
+  .social-links a {
+    width: 32px; height: 32px;
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .social-links a:hover { border-color: var(--clay); color: var(--clay); }
+
+  /* ── ANIMATIONS ── */
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    nav.scrolled { padding: 14px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; height: auto; min-height: 100svh; }
+    .hero-left { padding: 120px 24px 60px; }
+    .hero-right { height: 50vw; }
+    section { padding: 60px 24px; }
+    .intro-strip { flex-direction: column; padding: 40px 24px; }
+    .intro-stats { justify-content: center; }
+    .projects-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .proj-card.span-col { grid-row: span 1; }
+    .proj-card { aspect-ratio: 4/3; }
+    .services-layout { grid-template-columns: 1fr; gap: 40px; }
+    .services-sticky { position: static; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .about-layout { grid-template-columns: 1fr; gap: 48px; }
+    .about-text { padding-left: 0; }
+    .about-img-wrap { max-height: 400px; }
+    .about-quote-block { right: 0; }
+    .about-badge { display: none; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .test-grid { grid-template-columns: 1fr; }
+    .faq-layout { grid-template-columns: 1fr; }
+    .cta-section { grid-template-columns: 1fr; gap: 40px; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .cursor, .cursor-ring { display: none; }
+    body { cursor: auto; }
+    .btn-ghost, .btn-primary, .nav-cta, .faq-q, .service-item, .proj-card { cursor: pointer; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- ─── NAV ─── -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <a href="#home" class="nav-logo" aria-label="RABE Studio Architects home">RABE Studio</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact" class="nav-cta">Book Consultation</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="home" class="hero" aria-label="Hero section">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Modern Tropical Architecture · Philippines</div>
+    <h1 class="hero-title">
+      Spaces built<br>to <em>elevate</em><br>and endure.
+    </h1>
+    <p class="hero-sub">Focused, collaborative architecture for families and business builders. Recognized internationally. Rooted in the Philippines.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book a Consultation</a>
+      <a href="#projects" class="btn-ghost">
+        See our work
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hero-stat" aria-label="10 years of experience">10+ Years Experience</div>
+  </div>
+  <div class="hero-right" aria-hidden="true">
+    <div class="proj-bg proj-bg-pamayanan" style="width:100%;height:100%;position:absolute;">
+      <div class="proj-pattern"></div>
+      <div class="proj-label" style="color:rgba(255,255,255,0.05);font-size:12vw;">R</div>
+    </div>
+    <div class="hero-counter">01</div>
+  </div>
+</section>
+
+<!-- ─── INTRO STRIP ─── -->
+<div class="intro-strip" aria-label="Key statistics">
+  <p>"We design spaces that <em>create both lifestyle</em> and lasting value — no cookie-cutter solutions, no trend-chasing."</p>
+  <div class="intro-stats">
+    <div class="stat">
+      <div class="stat-num">40+</div>
+      <div class="stat-label">Projects</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Countries</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">ACA21</div>
+      <div class="stat-label">Int'l Award</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── PROJECTS ─── -->
+<section id="projects" class="projects">
+  <div class="projects-header reveal">
+    <div>
+      <div class="section-tag">Selected Work</div>
+      <h2 class="section-title">Projects That<br>Define Places</h2>
+    </div>
+    <a href="#contact" class="btn-ghost" style="margin-bottom:8px;">
+      Start your project
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="projects-grid">
+    <!-- Project 1 — tall -->
+    <article class="proj-card span-col reveal">
+      <div class="proj-bg proj-bg-pamayanan" style="position:absolute;inset:0;">
+        <div class="proj-pattern"></div>
+        <div class="proj-label">01</div>
+      </div>
+      <div class="proj-overlay">
+        <div class="proj-type">Mixed-Use Building</div>
+        <h3 class="proj-name">Pamayanan Center</h3>
+        <div class="proj-loc">Batangas, Philippines</div>
+        <a href="#contact" class="proj-link" aria-label="Explore Pamayanan Center project">
+          View project
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </article>
+    <!-- Project 2 -->
+    <article class="proj-card reveal reveal-delay-1">
+      <div class="proj-bg proj-bg-denovo" style="position:absolute;inset:0;">
+        <div class="proj-pattern"></div>
+        <div class="proj-label">02</div>
+      </div>
+      <div class="proj-overlay">
+        <div class="proj-type">Fine Dining Restaurant</div>
+        <h3 class="proj-name">Denovo Restaurant</h3>
+        <div class="proj-loc">Lipa City, Batangas</div>
+        <a href="#contact" class="proj-link" aria-label="Explore Denovo Restaurant project">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </article>
+    <!-- Project 3 -->
+    <article class="proj-card reveal reveal-delay-2">
+      <div class="proj-bg proj-bg-townhouse" style="position:absolute;inset:0;">
+        <div class="proj-pattern"></div>
+        <div class="proj-label">03</div>
+      </div>
+      <div class="proj-overlay">
+        <div class="proj-type">Townhouse Development</div>
+        <h3 class="proj-name">10-Unit Townhouse</h3>
+        <div class="proj-loc">Magalang, Pampanga</div>
+        <a href="#contact" class="proj-link" aria-label="Explore Pampanga Townhouse project">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </article>
+    <!-- Project 4 -->
+    <article class="proj-card reveal reveal-delay-3" style="grid-column: span 2;">
+      <div class="proj-bg proj-bg-bataan" style="position:absolute;inset:0;">
+        <div class="proj-pattern"></div>
+        <div class="proj-label">04</div>
+      </div>
+      <div class="proj-overlay">
+        <div class="proj-type">Cultural & Tourism Center</div>
+        <h3 class="proj-name">Heritage Tourism Center</h3>
+        <div class="proj-loc">Bataan, Philippines</div>
+        <a href="#contact" class="proj-link" aria-label="Explore Bataan Heritage Tourism Center project">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services" class="services">
+  <div class="services-layout">
+    <div class="services-sticky reveal">
+      <div class="section-tag">What We Do</div>
+      <h2 class="section-title">Smart Design,<br>Lasting<br>Returns.</h2>
+      <p>From first concept to final handover, we guide clients through every stage with care, clarity, and investment-minded thinking.</p>
+      <a href="#contact" class="btn-primary" style="margin-top:36px;display:inline-block;">Start Your Project</a>
+    </div>
+    <div class="services-list reveal reveal-delay-1">
+      <div class="service-item" role="article">
+        <div class="service-num">01</div>
+        <div>
+          <div class="service-name">Architectural Design</div>
+          <div class="service-desc">From concept to completion — residences, commercial spaces, and mixed-use developments with a focus on modern tropical design, efficiency, and ROI.</div>
+        </div>
+        <div class="service-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+      <div class="service-item" role="article">
+        <div class="service-num">02</div>
+        <div>
+          <div class="service-name">3D Visualization & Walkthroughs</div>
+          <div class="service-desc">Realistic 3D models, walkthroughs, and renders so you can make confident decisions before construction begins.</div>
+        </div>
+        <div class="service-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+      <div class="service-item" role="article">
+        <div class="service-num">03</div>
+        <div>
+          <div class="service-name">Interior Architecture & Fit-Out</div>
+          <div class="service-desc">Interiors that balance comfort, function, and style — from layouts and material selection to move-in-ready spaces.</div>
+        </div>
+        <div class="service-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+      <div class="service-item" role="article">
+        <div class="service-num">04</div>
+        <div>
+          <div class="service-name">Project Documentation</div>
+          <div class="service-desc">Signed and sealed drawings for permits, banks, and contractors — ensuring compliance and clarity.</div>
+        </div>
+        <div class="service-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+      <div class="service-item" role="article">
+        <div class="service-num">05</div>
+        <div>
+          <div class="service-name">Design–Build & Project Management</div>
+          <div class="service-desc">Integrated design–build that streamlines timelines, cost, and coordination through our trusted network.</div>
+        </div>
+        <div class="service-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+      <div class="service-item" role="article">
+        <div class="service-num">06</div>
+        <div>
+          <div class="service-name">Consultation & Property Strategy</div>
+          <div class="service-desc">Feasibility, cost planning, and investment strategies — helping owners turn spaces into income-generating assets.</div>
+        </div>
+        <div class="service-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section class="process">
+  <div class="reveal">
+    <div class="section-tag">How We Work</div>
+    <h2 class="section-title">Every great project<br>follows a clear path.</h2>
+  </div>
+  <div class="process-grid">
+    <div class="process-step reveal reveal-delay-1">
+      <div class="step-num">01</div>
+      <div class="step-title">Initial Design Concept</div>
+      <div class="step-desc">We begin with a deep conversation about how you live, how your business works, and what you hope to achieve. No assumptions.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="step-num">02</div>
+      <div class="step-title">Planning Applications</div>
+      <div class="step-desc">We prepare and submit permit documentation, coordinating with local authorities to keep your project compliant and on track.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="step-num">03</div>
+      <div class="step-title">Contractor Coordination</div>
+      <div class="step-desc">We connect you with our trusted network of engineers and contractors, managing communication to protect your investment.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-4">
+      <div class="step-num">04</div>
+      <div class="step-title">Site Visits & Construction Support</div>
+      <div class="step-desc">We conduct regular site visits throughout construction, ensuring design intent is maintained from first pour to final finish.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section id="about" class="about">
+  <div class="about-layout">
+    <div class="about-visual reveal">
+      <div class="about-img-wrap">
+        <div class="about-bg">
+          <div class="about-pattern"></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:7rem;font-weight:300;color:rgba(255,255,255,0.06);">R</div>
+        </div>
+      </div>
+      <div class="about-quote-block">
+        <p>"We don't just design buildings — we help you build assets that grow with you."</p>
+      </div>
+      <div class="about-badge" aria-label="Founded 2020">Est. 2020</div>
+    </div>
+    <div class="about-text reveal reveal-delay-2">
+      <div class="section-tag">About the Studio</div>
+      <h2 class="section-title">Architecture<br>That Listens<br><em style="font-style:italic;color:var(--rust);">First.</em></h2>
+      <p>RABE Studio Architects was founded on a simple idea: <strong>spaces should create both lifestyle and lasting value.</strong> That means no cookie-cutter solutions, no trend-chasing, and no designs that ignore your goals.</p>
+      <p>We work closely with clients from first concepts to final turnover, guiding each step with care and clarity. Our background spans architecture, interiors, and project delivery — allowing us to design with vision while staying practical, cost-efficient, and investment-minded.</p>
+      <p>Based in the Philippines, serving clients nationwide and internationally.</p>
+      <div class="award-tag">ACA21 Emerging Voices of Asia — Incheon, South Korea, 2025</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TEAM ─── -->
+<section id="team" class="team">
+  <div class="reveal">
+    <div class="section-tag">The People</div>
+    <h2 class="section-title">The Minds<br>Behind the Work</h2>
+  </div>
+  <div class="team-grid">
+    <article class="team-card reveal reveal-delay-1">
+      <div class="team-bg t-bg-1">
+        <div class="t-pattern"></div>
+        <div class="t-initial">B</div>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Brendan Earl Pablo</div>
+        <div class="team-role">Co-Founder · Architect, UAP</div>
+        <div class="team-bio">A licensed architect with over a decade of experience across commercial and residential projects, from Alviera Country Club to private residences. Represented the Philippines at ACA21, South Korea, 2025.</div>
+      </div>
+    </article>
+    <article class="team-card reveal reveal-delay-2">
+      <div class="team-bg t-bg-2">
+        <div class="t-pattern"></div>
+        <div class="t-initial">R</div>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Ruffa Andrea Jimena</div>
+        <div class="team-role">Co-Founder · Architect, UAP</div>
+        <div class="team-bio">Architect and Chief Operating Officer, bringing structure and precision to every project. Versatile background spanning Alviera Country Club to hospital planning. ACA21 representative, 2025.</div>
+      </div>
+    </article>
+    <article class="team-card reveal reveal-delay-3">
+      <div class="team-bg t-bg-3">
+        <div class="t-pattern"></div>
+        <div class="t-initial">C</div>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Christian Nicdao</div>
+        <div class="team-role">Design Assistant</div>
+        <div class="team-bio">Supports early design stages with schematic design, moodboards, and material research. Bridges architectural structure with lived experience.</div>
+      </div>
+    </article>
+    <article class="team-card reveal reveal-delay-4">
+      <div class="team-bg t-bg-4">
+        <div class="t-pattern"></div>
+        <div class="t-initial">M</div>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Mary Ann Chua</div>
+        <div class="team-role">Design Assistant</div>
+        <div class="team-bio">Background in environmental planning, commercial and residential design. Supports concept development, material research, and technical works.</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="testimonials">
+  <div class="reveal">
+    <div class="section-tag">Client Voices</div>
+    <h2 class="section-title">What Our<br>Clients Say</h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card reveal reveal-delay-1">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"RABE Studio didn't just design our restaurant — they understood what we were trying to build and guided us through every decision with confidence and clarity."</p>
+      <div class="test-author"><strong>Denovo Restaurant</strong>Lipa City, Batangas</div>
+    </div>
+    <div class="test-card reveal reveal-delay-2">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"From planning to handover, the process was transparent and well-managed. Our property exceeded our expectations in both design and investment value."</p>
+      <div class="test-author"><strong>Townhouse Development Client</strong>Magalang, Pampanga</div>
+    </div>
+    <div class="test-card reveal reveal-delay-3">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"They helped us see the potential in our property that we couldn't see ourselves. The mixed-use concept they proposed has become the centrepiece of our community."</p>
+      <div class="test-author"><strong>Pamayanan Center</strong>Batangas</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section id="faq" class="faq">
+  <div class="faq-layout">
+    <div class="reveal">
+      <div class="section-tag">Common Questions</div>
+      <h2 class="section-title">Frequently<br>Asked</h2>
+      <p style="font-size:0.88rem;color:var(--mid);margin-top:20px;line-height:1.8;">Still have questions? Reach out and we'll answer them in our consultation call.</p>
+      <a href="#contact" class="btn-primary" style="margin-top:32px;display:inline-block;">Ask Us Directly</a>
+    </div>
+    <div class="faq-list reveal reveal-delay-2">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false">
+          What types of projects do you handle?
+          <div class="faq-toggle" aria-hidden="true">+</div>
+        </div>
+        <div class="faq-a">We design modern tropical homes, fine dining restaurants, mixed-use commercial buildings, townhouse developments, cultural facilities, and more. We serve both residential and commercial clients across the Philippines.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false">
+          How much does it cost to hire an architect?
+          <div class="faq-toggle" aria-hidden="true">+</div>
+        </div>
+        <div class="faq-a">Fees vary by project scope, size, and services required. We offer a free initial consultation where we can discuss your project and provide a transparent fee proposal. We tailor our approach to fit your goals and budget.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false">
+          How long does the design process take?
+          <div class="faq-toggle" aria-hidden="true">+</div>
+        </div>
+        <div class="faq-a">A typical residential project takes 2–4 months for design development and documentation. Commercial projects may take longer. We'll give you a detailed timeline during your consultation based on your specific project.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false">
+          Do you handle building permits?
+          <div class="faq-toggle" aria-hidden="true">+</div>
+        </div>
+        <div class="faq-a">Yes. We prepare all signed and sealed documentation required for building permits in the Philippines, and we coordinate with local government units on your behalf to keep the process moving smoothly.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false">
+          Do you work with clients outside Metro Manila?
+          <div class="faq-toggle" aria-hidden="true">+</div>
+        </div>
+        <div class="faq-a">Absolutely. We work with clients across the Philippines, including Batangas, Pampanga, Bataan, and beyond. Many of our most meaningful projects have been outside Metro Manila.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false">
+          Can you help if I already have a contractor?
+          <div class="faq-toggle" aria-hidden="true">+</div>
+        </div>
+        <div class="faq-a">Yes. We can work alongside your existing contractor, providing design and documentation services, site visits, and construction support to protect your investment and ensure the design is built as intended.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section id="contact" class="cta-section">
+  <div class="reveal">
+    <h2 class="cta-title">Let's build<br>something <em>worth<br>keeping.</em></h2>
+    <p class="cta-sub">We work with a select number of clients each year to ensure every project receives the focus it deserves. If you're ready to talk, we'd love to hear about your vision.</p>
+    <div class="cta-contact" style="margin-top:24px;">
+      Or reach us at <a href="mailto:info@rabestudioarchitects.com">info@rabestudioarchitects.com</a> · <a href="tel:+639507914177">+63 950 791 4177</a>
+    </div>
+  </div>
+  <div class="cta-actions reveal reveal-delay-2">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1dDHl75JdNehXYyLXNutJrJuqPZDbJ5TYm6zAV44WbLuaug/viewform" class="btn-primary" target="_blank" rel="noopener">Schedule Private Consultation</a>
+    <a href="#projects" class="btn-outline-cream">View Our Work First</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#home" class="footer-logo">RABE Studio Architects</a>
+      <p class="footer-tagline">Modern tropical architecture for families and business builders across the Philippines.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#faq">FAQs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Architectural Design</a></li>
+        <li><a href="#services">3D Visualization</a></li>
+        <li><a href="#services">Interior Architecture</a></li>
+        <li><a href="#services">Design–Build</a></li>
+        <li><a href="#services">Property Strategy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@rabestudioarchitects.com">Email Us</a></li>
+        <li><a href="tel:+639507914177">+63 950 791 4177</a></li>
+        <li><a href="#contact">Book Consultation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 RABE Studio Architects. All rights reserved. · Licensed Architects, UAP</span>
+    <div class="social-links">
+      <a href="#" aria-label="RABE Studio on Pinterest" title="Pinterest">P</a>
+      <a href="#" aria-label="RABE Studio on LinkedIn" title="LinkedIn">in</a>
+      <a href="#" aria-label="RABE Studio on Instagram" title="Instagram">ig</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Custom Cursor ──
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`;
+});
+
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.12;
+  ringY += (mouseY - ringY) * 0.12;
+  ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%,-50%)`;
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a, button, .faq-q, .service-item, .proj-card').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform += ' scale(2)';
+    ring.style.opacity = '0.3';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = cursor.style.transform.replace(' scale(2)', '');
+    ring.style.opacity = '0.6';
+  });
+});
+
+// ── Scrolled Nav ──
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── Reveal on Scroll ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// ── FAQ Toggle ──
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+  el.setAttribute('aria-expanded', !isOpen);
+}
+
+// keyboard support for FAQ
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFaq(q); }
+  });
+});
+</script>
+</body>
+</html>
